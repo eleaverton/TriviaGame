@@ -1,5 +1,8 @@
+//set up timer variables and objects
 var timerRunning = false;
 var setIntervalId;
+var questionTimeout;
+var answerTimeout;
 var timer = {
     time: 20,
     reset: function() {
@@ -21,6 +24,7 @@ var timer = {
         $("#timer").html("Timer Remaining: " + timer.time + " seconds");
     }
 };
+//set up question variables and objects
 var currentQuestion = 0;
 var guessId;
 var correct = 0;
@@ -47,40 +51,45 @@ var questionList = [{
     correctAnswer: 1,
     gif: "hungarian"
 }];
+//this function indicates that the question has not been answered and then moves on to next question using answerTimeout
+//it is called from a Timeout function (questionTimeout)
 var outOfTime = function(){
+		clearTimeout(questionTimeout);
 		timer.stop();
-		clearTimeout(outOfTime);
         $("#questionText").empty();
         $("#answerchoices").empty();
         $("#answerverdict").html("You ran out of time!");
         $("#correctanswer").html("The correct answer is " + questionList[currentQuestion - 1].answers[questionList[currentQuestion - 1].correctAnswer] + "!");
         $("#answergif").html("<img src =  assets/images/" + questionList[currentQuestion - 1].gif + ".gif>");
         unanswered++;
-        setTimeout(nextQuestion, 6000);
+        answerTimeout = setTimeout(nextQuestion, 6000);
 };
 
+//this function displays how many questions were correct, incorrect, and unanswered
 var endStats = function(){
 	timer.stop();
-	clearTimeout(nextQuestion);
-	clearTimeout(outOfTime);
+	clearTimeout(answerTimeout);
+
 	$("#questionText").empty();
     $("#answerchoices").empty();
     $("#correctanswer").empty();
     $("#answergif").empty();
     $("#answerverdict").html("<h1>Results</h1><br>Correct: "+correct+"<br>Incorrect: "+incorrect+"<br>Unanswered: "+unanswered)
 }
-
+//this function resets and starts the timer and sets up the next question and answer options
 var nextQuestion = function() {
         timer.reset();
         timer.start();
-        setTimeout(outOfTime,20000);
-        currentQuestion++;
         console.log(currentQuestion);
         console.log(questionList.length);
+        currentQuestion++;
+        //if the curretQuestion counter exceeds the number of questions, execute endStats
         if (currentQuestion > (questionList.length)){
         	endStats();
         }
-        else{
+        //else if currentQuestion is within limits, set up the next question
+        else if(currentQuestion <= (questionList.length)){
+        	questionTimeout = setTimeout(outOfTime,20000);
 	        console.log(currentQuestion);
 	        $("#startbutton").empty();
 	        $("#answerverdict").empty();
@@ -96,20 +105,21 @@ var nextQuestion = function() {
 
 $("#start").on("click", nextQuestion);
 
+//when an answer is selected, the quesitonTimeout should clear.
 $("#answerchoices").click(function(e) {
     e.stopPropagation();
     console.log(e.target.id);
     guessId = parseInt(e.target.id);
     console.log(guessId);
     timer.stop();
-    clearTimeout(outOfTime);
+    clearTimeout(questionTimeout);
     if (guessId === questionList[currentQuestion - 1].correctAnswer) {
         $("#questionText").empty();
         $("#answerchoices").empty();
         $("#answerverdict").html("You are correct!");
         $("#answergif").html("<img src =  assets/images/" + questionList[currentQuestion - 1].gif + ".gif>");
         correct++;
-        setTimeout(nextQuestion, 6000);
+        answerTimeout = setTimeout(nextQuestion, 6000);
     } else if (guessId !== questionList[currentQuestion - 1].correctAnswer) {
         $("#questionText").empty();
         $("#answerchoices").empty();
@@ -117,7 +127,7 @@ $("#answerchoices").click(function(e) {
         $("#correctanswer").html("The correct answer is " + questionList[currentQuestion - 1].answers[questionList[currentQuestion - 1].correctAnswer] + "!");
         $("#answergif").html("<img src =  assets/images/" + questionList[currentQuestion - 1].gif + ".gif>");
         incorrect++;
-        setTimeout(nextQuestion, 6000);
+        answerTimeout = setTimeout(nextQuestion, 6000);
     }
 
 
