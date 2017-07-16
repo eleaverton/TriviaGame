@@ -1,3 +1,58 @@
+body{
+	
+	background-image:url(../images/marauders.jpg) !important;
+	background-size: cover;
+    text-align:center;
+}
+ul{
+	list-style-type: none;
+}
+
+
 li:hover{
-	background-color:yellow;
+	background-color:#e1c498;
+}
+
+
+@font-face {
+	font-family:"HarryP";
+	src:url(HARRP___.ttf) format("truetype");
+}
+
+@font-face {
+	font-family:"Lumos";
+	src:url(LumosLatino.ttf) format("truetype");
+}
+
+h1{
+	font-family: "HarryP";
+	font-weight: bold;
+	font-size:68px;
+	color:#5e2825;
+}
+
+#timer{
+	font-size: 30px;
+	font-weight: bold;
+	font-family:"Lumos";
+}
+
+#content{
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:20px;
+	margin-left:300px;
+	margin-right:300px;
+	background-color: rgba(225,196,152,0.7);
+}
+
+#questionText{
+	font-family: "Lumos";
+	font-weight: bold;
+	font-size: 40px;
+
+}
+
+#answerChoices{
+	font-size:32px;
 }

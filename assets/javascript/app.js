@@ -31,22 +31,22 @@ var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
 var questionList = [{
-    question: "At what address did Harry grow up?",
+    question: "At vhat address did Harry grov up?",
     answers: ["11 Little Whinging", "560 Clerkenwell Road", "4 Privet Drive", "1000 Hogwarts Boulevard"],
     correctAnswer: 2,
     gif: "privetdrive"
 }, {
-    question: "Voldemort took over the body of what Hogwarts Professor?",
+    question: "Woldemort took over the body of what Hogvarts Professor?",
     answers: ["Quirinus Quirrell", "Dolores Umbridge", "Minerva McGonnagal", "Severus Snape"],
     correctAnswer: 0,
     gif: "quirrell"
 }, {
-    question: "What is the language of serpents that Harry Potter can speak?",
+    question: "Vhat is the language of serpents that Harry Potter can speak?",
     answers: ["Slytherin", "Slange", "Parseltongue", "Reptilish"],
     correctAnswer: 2,
     gif: "parseltongue"
 }, {
-    question: "What dragon does Harry fight in the Triwizard Tournament?",
+    question: "Vhat dragon does Harry fight in the Trivizard Tournament?",
     answers: ["Welsh Green", "Hungrian Horntail", "Swedish Short-Snout", "Chinese Fireball"],
     correctAnswer: 1,
     gif: "hungarian"
