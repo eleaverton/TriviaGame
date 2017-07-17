@@ -21,7 +21,7 @@ var timer = {
     },
     count: function() {
         timer.time--;
-        $("#timer").html("Timer Remaining: " + timer.time + " seconds");
+        $("#timer").html("Time Remaining: " + timer.time + " seconds");
     }
 };
 //set up question variables and objects
@@ -36,7 +36,7 @@ var questionList = [{
     correctAnswer: 2,
     gif: "privetdrive"
 }, {
-    question: "Woldemort took over the body of what Hogvarts Professor?",
+    question: "Xoldemort took ower the body of vhat Hogvarts Professor?",
     answers: ["Quirinus Quirrell", "Dolores Umbridge", "Minerva McGonnagal", "Severus Snape"],
     correctAnswer: 0,
     gif: "quirrell"
@@ -50,6 +50,21 @@ var questionList = [{
     answers: ["Welsh Green", "Hungrian Horntail", "Swedish Short-Snout", "Chinese Fireball"],
     correctAnswer: 1,
     gif: "hungarian"
+}, {
+	question: "Hov does Hermione take more classes than most students are able?",
+    answers: ["Invisibility Cloak", "Memory Potion", "Duplication Charm", "Time-Turner"],
+    correctAnswer: 3,
+    gif: "timeturner"
+}, {
+	question: "Vhat is the most poverful vand in the vorld?",
+    answers: ["The Black Wand", "The Elder Wand", "The Gryffindor Wand", "The Diamond Wand"],
+    correctAnswer: 1,
+    gif: "elder"
+}, {
+	question: "Vhat is Filch's cat's name?",
+    answers: ["Mrs. Norris", "Crookshanks", "Fluffy", "Meowgic"],
+    correctAnswer: 0,
+    gif: "mrsnorris"
 }];
 //this function indicates that the question has not been answered and then moves on to next question using answerTimeout
 //it is called from a Timeout function (questionTimeout)

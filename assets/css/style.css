@@ -4,8 +4,19 @@ body{
 	background-size: cover;
     text-align:center;
 }
-ul{
+li{
 	list-style-type: none;
+	font-size:28px;
+	font-family: "Cinzel", serif;
+}
+
+#start{
+	font-family:"Lumos";
+	font-size:24px;
+	font-weight:bold;
+	color:#5e2825;
+	background-color:#e1c498;
+	border: 3px solid #5e2825;
 }
 
 
@@ -26,8 +37,9 @@ li:hover{
 
 h1{
 	font-family: "HarryP";
+	padding-top:20px;
 	font-weight: bold;
-	font-size:68px;
+	font-size:75px;
 	color:#5e2825;
 }
 
@@ -46,13 +58,19 @@ h1{
 	background-color: rgba(225,196,152,0.7);
 }
 
-#questionText{
-	font-family: "Lumos";
+h2{
 	font-weight: bold;
 	font-size: 40px;
-
+	font-family: "Lumos";
+	padding-top: 15px;
+	padding-bottom:15px;
 }
 
-#answerChoices{
+#answerChoices, #answerverdict, #correctanswer {
 	font-size:32px;
+	font-family: "Cinzel", serif;
+}
+#answerverdict{
+	padding-top:15px;
+	padding-bottom:15px;
 }
