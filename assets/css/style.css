@@ -53,9 +53,14 @@ h1{
 	text-align:center;
 	padding-top:20px;
 	padding-bottom:20px;
-	margin-left:300px;
-	margin-right:300px;
+	margin-left:25%;
+	margin-right:25%;
+	margin-bottom:5%;
 	background-color: rgba(225,196,152,0.7);
+}
+
+img{
+	width:80%;
 }
 
 h2{
