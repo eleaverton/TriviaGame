@@ -77,7 +77,7 @@ var outOfTime = function(){
         $("#correctanswer").html("The correct answer is " + questionList[currentQuestion - 1].answers[questionList[currentQuestion - 1].correctAnswer] + "!");
         $("#answergif").html("<img src =  assets/images/" + questionList[currentQuestion - 1].gif + ".gif>");
         unanswered++;
-        answerTimeout = setTimeout(nextQuestion, 6000);
+        answerTimeout = setTimeout(nextQuestion, 2000);
 };
 
 //this function displays how many questions were correct, incorrect, and unanswered
@@ -89,8 +89,16 @@ var endStats = function(){
     $("#answerchoices").empty();
     $("#correctanswer").empty();
     $("#answergif").empty();
-    $("#answerverdict").html("<h1>Results</h1><br>Correct: "+correct+"<br>Incorrect: "+incorrect+"<br>Unanswered: "+unanswered)
+    $("#answerverdict").html("<h1>Results</h1><br>Correct: "+correct+"<br>Incorrect: "+incorrect+"<br>Unanswered: "+unanswered);
+    $("#refreshbutton").html($("<button/>", {
+    	text: "Restart Game",
+    	type:"button",
+    	class:"btn btn-default btn-lg",
+    	id:"refresh"}));
+  	//something isn't working here with assigning the id
+
 }
+
 //this function resets and starts the timer and sets up the next question and answer options
 var nextQuestion = function() {
         timer.reset();
@@ -134,7 +142,7 @@ $("#answerchoices").click(function(e) {
         $("#answerverdict").html("You are correct!");
         $("#answergif").html("<img src =  assets/images/" + questionList[currentQuestion - 1].gif + ".gif>");
         correct++;
-        answerTimeout = setTimeout(nextQuestion, 6000);
+        answerTimeout = setTimeout(nextQuestion, 2000);
     } else if (guessId !== questionList[currentQuestion - 1].correctAnswer) {
         $("#questionText").empty();
         $("#answerchoices").empty();
@@ -142,8 +150,19 @@ $("#answerchoices").click(function(e) {
         $("#correctanswer").html("The correct answer is " + questionList[currentQuestion - 1].answers[questionList[currentQuestion - 1].correctAnswer] + "!");
         $("#answergif").html("<img src =  assets/images/" + questionList[currentQuestion - 1].gif + ".gif>");
         incorrect++;
-        answerTimeout = setTimeout(nextQuestion, 6000);
+        answerTimeout = setTimeout(nextQuestion, 2000);
     }
 
 
+});
+
+//Option to restart game
+$("#refreshbutton").on("click", function(e){
+	console.log(e.target.id);
+	currentQuestion = 0;
+	guessId;
+	correct = 0;
+	incorrect = 0;
+	unanswered = 0;
+	nextQuestion();
 });
