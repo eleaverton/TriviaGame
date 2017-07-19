@@ -36,11 +36,12 @@ li:hover{
 }
 
 h1{
-	font-family: "HarryP"; 
+	 
 	padding-top:20px;
 	font-weight: bold;
 	font-size:75px;
 	color:#5e2825;
+	font-family: "HarryP";
 }
 
 #timer{
